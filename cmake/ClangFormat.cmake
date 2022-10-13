@@ -1,6 +1,6 @@
 find_program(CLANG_FORMAT "clang-format")
 if(NOT CLANG_FORMAT)
-    message(FATAL_ERROR "clang-format not found on your \$\{PATH\}")
+    message(WARNING "clang-format not found on your \$\{PATH\}")
 endif()
 
 SET(EXCLUDE_PATTERN "${CMAKE_CURRENT_SOURCE_DIR}/(external|build|cmake-build-debug).*")
