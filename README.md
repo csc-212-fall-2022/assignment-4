@@ -29,3 +29,6 @@ be O(h) where h is the height of the tree.
 ## Part 3: 6.2-2
 
 Implement the function `MinHeapify` in `assignment4/MinHeapify.cpp`.
+
+**NOTE**: I will update the assignment with tests for `MinHeapify`. Part 2 of the assignment is fairly long,
+so I wanted to make it available now rather than waiting.

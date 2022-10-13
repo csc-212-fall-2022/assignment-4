@@ -17,12 +17,8 @@ private:
   }
 
 public:
-  SuccessorNodeTree(){
-    root = nullptr;
-  }
-  SuccessorNodeTree(SuccessorNode *r) {
-    root = r;
-  }
+  SuccessorNodeTree() { root = nullptr; }
+  SuccessorNodeTree(SuccessorNode *r) { root = r; }
   ~SuccessorNodeTree();
 
   SuccessorNode *Search(int);

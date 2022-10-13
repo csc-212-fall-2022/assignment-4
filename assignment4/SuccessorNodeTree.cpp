@@ -16,7 +16,7 @@ bool IsBSTHelper(SuccessorNode *node) {
   return IsBSTHelper(node->left) && IsBSTHelper(node->right);
 }
 
-void PostOrderCleanup(SuccessorNode* node) {
+void PostOrderCleanup(SuccessorNode *node) {
   if (node != nullptr) {
     PostOrderCleanup(node->left);
     PostOrderCleanup(node->right);
@@ -24,12 +24,9 @@ void PostOrderCleanup(SuccessorNode* node) {
   }
 }
 
-SuccessorNodeTree::~SuccessorNodeTree() {
-  PostOrderCleanup(root);
-}
+SuccessorNodeTree::~SuccessorNodeTree() { PostOrderCleanup(root); }
 
-
-SuccessorNode* SuccessorNodeTree::Search(int n) {
+SuccessorNode *SuccessorNodeTree::Search(int n) {
   throw std::runtime_error("Implement me!");
 }
 
@@ -37,7 +34,7 @@ void SuccessorNodeTree::Insert(int n) {
   throw std::runtime_error("Implement me!");
 }
 
-void SuccessorNodeTree::Delete(int n){
+void SuccessorNodeTree::Delete(int n) {
   throw std::runtime_error("Implement me!");
 }
 

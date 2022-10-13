@@ -34,7 +34,7 @@ TEST_CASE("Test parents") {
 
   CHECK_EQ(tree.Parent(node1), node2);
   CHECK_EQ(tree.Parent(node2), node12);
-  CHECK_EQ(tree.Parent(node12) , nullptr);
+  CHECK_EQ(tree.Parent(node12), nullptr);
   CHECK_EQ(tree.Parent(node3), node4);
 }
 
@@ -43,7 +43,7 @@ TEST_CASE("Test insertion") {
 
   std::vector<int> insertionOrder = {12, 2, 1, 4, 3, 5, 7};
 
-  for (auto& i : insertionOrder) {
+  for (auto &i : insertionOrder) {
     CAPTURE(i);
     tree.Insert(i);
     CHECK(tree.IsBinarySearchTree());
