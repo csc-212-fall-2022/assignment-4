@@ -22,7 +22,7 @@ struct SuccessorNode {
   SuccessorNode(int n) { key = n; }
 };
 ```
-To help, start by implementing the `Parent` and `TreeMaximum` functions. Your `Search`, `Insert` and `Delete` functions should
+To help, start by implementing the `Parent` function. There is a `TreeMaximum` method already implemented. Your `Search`, `Insert` and `Delete` functions should
 be O(h) where h is the height of the tree.
 
 
