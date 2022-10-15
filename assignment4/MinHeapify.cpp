@@ -1,14 +1,18 @@
 #include "MinHeapify.hpp"
+#include <algorithm>
 #include <stdexcept>
 
 namespace assignment4 {
 
-int Left(int idx) { return (idx << 1) - 1; }
+int Left(int idx) { return (idx << 1) + 1; }
 
-int Right(int idx) { return (idx << 1); }
+int Right(int idx) { return (idx << 1) + 2; }
 
+// Given a vector representing a binary tree and an index `idx`
+// such that the trees rooted at Left(idx) and Right(idx) are min-heaps,
+// transform the tree rooted at idx to be a min-heap
 std::vector<int> MinHeapify(std::vector<int> vec, int idx) {
-  throw std::runtime_error("Implement me!");
+  throw std::runtime_error("Not implemented!");
 }
 
 bool IsMinHeap(std::vector<int> vec) {
