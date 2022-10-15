@@ -1,14 +1,46 @@
 #include "MinHeapify.hpp"
+#include <algorithm>
 #include <stdexcept>
 
 namespace assignment4 {
 
-int Left(int idx) { return (idx << 1) - 1; }
+int Left(int idx) {  
+    return (idx << 1) + 1;
+}
 
-int Right(int idx) { return (idx << 1); }
+int Right(int idx) {
+  return (idx << 1) + 2;
+}
 
 std::vector<int> MinHeapify(std::vector<int> vec, int idx) {
-  throw std::runtime_error("Implement me!");
+  int l = Left(idx);
+  int r = Right(idx);
+
+  if (l >= vec.size()) {
+    l = idx;
+  }
+
+  if (r >= vec.size()) {
+    r = idx;
+  }
+
+  int smallest = idx;
+  int smallest_value = vec.at(idx);
+  if (vec.at(l) < smallest_value) {
+    smallest = l;
+    smallest_value = vec.at(l);
+  }
+  if (vec.at(r) < smallest_value) {
+    smallest = r;
+    smallest_value = vec.at(r);
+  }
+
+  if (smallest != idx) {
+    vec.at(smallest) = vec.at(idx);
+    vec.at(idx) = smallest_value;
+    return MinHeapify(vec, smallest);
+  }
+  return vec;
 }
 
 bool IsMinHeap(std::vector<int> vec) {
