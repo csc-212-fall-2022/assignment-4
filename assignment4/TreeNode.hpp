@@ -5,6 +5,10 @@ struct TreeNode {
   TreeNode *right;
   TreeNode *parent;
 
-  TreeNode(int k) { key = k; }
+  TreeNode(int k) { 
+    key = k;
+    left = nullptr;
+    right = nullptr;
+  }
 };
 } // namespace assignment4
