@@ -4,7 +4,7 @@
 namespace assignment4 {
 class BinarySearchTree {
 private:
-  TreeNode *root;
+  TreeNode *root = nullptr;
 
 public:
   void Insert(int);
