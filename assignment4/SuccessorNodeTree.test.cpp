@@ -50,7 +50,12 @@ TEST_CASE("Test insertion") {
     tree.Insert(i);
     CHECK(tree.IsBinarySearchTree());
 
-    // now check the successors
+  }
+  
+  // now check the successors once everything has been inserted
+  for (int idx = 0; idx < insertionOrder.size(); idx++) {
+    int i = insertionOrder.at(idx);
+    CAPTURE(i);
     SuccessorNode *node = tree.Search(i);
     int successor = successors.at(idx);
     if (successor > 0) {
