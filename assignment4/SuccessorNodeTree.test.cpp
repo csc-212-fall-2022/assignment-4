@@ -34,7 +34,7 @@ TEST_CASE("Test parents") {
 
   CHECK_EQ(tree.Parent(node1), node2);
   CHECK_EQ(tree.Parent(node2), node12);
-  CHECK_EQ(tree.Parent(node12) , nullptr);
+  CHECK_EQ(tree.Parent(node12), nullptr);
   CHECK_EQ(tree.Parent(node3), node4);
 }
 
@@ -42,10 +42,27 @@ TEST_CASE("Test insertion") {
   SuccessorNodeTree tree = SuccessorNodeTree();
 
   std::vector<int> insertionOrder = {12, 2, 1, 4, 3, 5, 7};
+  std::vector<int> successors = {-1, 3, 2, 5, 4, 7, 12};
 
-  for (auto& i : insertionOrder) {
+  for (int idx = 0; idx < insertionOrder.size(); idx++) {
+    int i = insertionOrder.at(idx);
     CAPTURE(i);
     tree.Insert(i);
     CHECK(tree.IsBinarySearchTree());
+
+  }
+  
+  // now check the successors once everything has been inserted
+  for (int idx = 0; idx < insertionOrder.size(); idx++) {
+    int i = insertionOrder.at(idx);
+    CAPTURE(i);
+    SuccessorNode *node = tree.Search(i);
+    int successor = successors.at(idx);
+    if (successor > 0) {
+      CHECK_EQ(node->successor->key, successors.at(idx));
+    } else {
+      // should have the nullptr
+      CHECK_EQ(node->successor, nullptr);
+    }
   }
 }

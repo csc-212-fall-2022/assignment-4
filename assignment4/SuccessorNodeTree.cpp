@@ -1,4 +1,5 @@
 #include "SuccessorNodeTree.hpp"
+#include <stdexcept>
 #include <vector>
 
 namespace assignment4 {
@@ -15,7 +16,7 @@ bool IsBSTHelper(SuccessorNode *node) {
   return IsBSTHelper(node->left) && IsBSTHelper(node->right);
 }
 
-void PostOrderCleanup(SuccessorNode* node) {
+void PostOrderCleanup(SuccessorNode *node) {
   if (node != nullptr) {
     PostOrderCleanup(node->left);
     PostOrderCleanup(node->right);
@@ -23,13 +24,21 @@ void PostOrderCleanup(SuccessorNode* node) {
   }
 }
 
-SuccessorNodeTree::~SuccessorNodeTree() {
-  PostOrderCleanup(root);
-}
+SuccessorNodeTree::~SuccessorNodeTree() { PostOrderCleanup(root); }
 
-
-SuccessorNode* SuccessorNodeTree::Search(int n) {
-    
+SuccessorNode *SuccessorNodeTree::Search(int n) {
+  SuccessorNode *curr = root;
+  while (curr != nullptr) {
+    if (n == curr->key) {
+      return curr;
+    }
+    if (n < curr->key) {
+      curr = curr->left;
+    } else {
+      curr = curr->right;
+    }
+  }
+  throw std::underflow_error("Not found in tree!");
 }
 
 void SuccessorNodeTree::Insert(int n) {
